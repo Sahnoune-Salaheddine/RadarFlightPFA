@@ -1,0 +1,35 @@
+# Server Configuration
+server.port=8080
+spring.application.name=flightradar-backend
+
+# Database Configuration (PostgreSQL)
+# IMPORTANT: Configurez votre propre base de données PostgreSQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/flightradar
+spring.datasource.username=postgres
+spring.datasource.password=VOTRE_MOT_DE_PASSE
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# JPA Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+# CORS Configuration
+spring.web.cors.allowed-origins=http://localhost:3000,http://localhost:3001
+spring.web.cors.allowed-methods=GET,POST,PUT,DELETE,OPTIONS
+spring.web.cors.allowed-headers=*
+
+# JWT Configuration
+# IMPORTANT: Changez cette clé secrète en production !
+jwt.secret=flightradar-secret-key-2026-very-secure-key-for-jwt-token-generation
+jwt.expiration=86400000
+
+# Weather API Configuration (Open-Meteo - gratuit, pas besoin de clé API)
+# Open-Meteo est une API météo gratuite qui remplace OpenWeather
+# URL: https://api.open-meteo.com/v1/forecast
+
+# Logging
+logging.level.com.flightradar=DEBUG
+logging.level.org.springframework.web=INFO
+

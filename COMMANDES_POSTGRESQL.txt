@@ -1,0 +1,51 @@
+═══════════════════════════════════════════════════════════════
+  COMMANDES POSTGRESQL - Flight Radar 2026
+═══════════════════════════════════════════════════════════════
+
+📥 INSTALLATION
+───────────────────────────────────────────────────────────────
+1. Télécharger : https://www.postgresql.org/download/windows/
+2. Installer avec l'installateur
+3. Noter le mot de passe (par défaut : postgres)
+
+🚀 DÉMARRAGE
+───────────────────────────────────────────────────────────────
+# Trouver le service
+Get-Service -Name "*postgres*"
+
+# Démarrer
+Start-Service -Name "postgresql-x64-15"
+
+# Ou via services.msc (Win+R → services.msc)
+
+🗄️ CRÉER LA BASE DE DONNÉES
+───────────────────────────────────────────────────────────────
+# Ajouter au PATH
+$env:Path += ";C:\Program Files\PostgreSQL\15\bin"
+
+# Créer la base
+psql -U postgres -c "CREATE DATABASE flightradar;"
+
+# Ou se connecter et créer manuellement
+psql -U postgres
+CREATE DATABASE flightradar;
+\q
+
+✅ VÉRIFICATION
+───────────────────────────────────────────────────────────────
+# Tester le port
+Test-NetConnection -ComputerName localhost -Port 5432
+
+# Vérifier la base
+psql -U postgres -c "\l" | Select-String "flightradar"
+
+🔧 CONFIGURATION
+───────────────────────────────────────────────────────────────
+Éditer : backend/src/main/resources/application.properties
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/flightradar
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+
+═══════════════════════════════════════════════════════════════
+
