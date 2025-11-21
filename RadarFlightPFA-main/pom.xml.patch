@@ -1,0 +1,10 @@
+--- a/backend/pom.xml
++++ b/backend/pom.xml
+@@ -15,7 +15,7 @@
+     <groupId>com.flightradar</groupId>
+     <artifactId>flightradar-backend</artifactId>
+     <version>1.0.0</version>
+-    <n>Flight Radar Backend</n>
++    <name>Flight Radar Backend</name>
+     <description>Backend API for Flight Radar Application</description>
+
